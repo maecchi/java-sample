@@ -1,0 +1,29 @@
+// mainとtestをそれぞれビルドするために、javaプラグインを指定
+apply plugin: 'java'
+
+// 使用するリポジトリ指定
+repositories {
+    // Mavenリポジトリを使用
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.2.0'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.2.0'
+}
+
+// Gradleでのテスト実行時 設定
+test {
+    // Junit5をGradleで動かすための設定、Gradle4.6からJunit5をGradleがネイティブサポートしたため記述できる
+    useJUnitPlatform()
+}
+
+// 実行可能クラスの指定、実行可能mainメソッドを持つクラスの指定にはapplicationプラグインを指定
+apply plugin: 'application'
+// 実行対象クラスを指定する
+mainClassName = 'Main'
