@@ -25,5 +25,5 @@ test {
 
 // 実行可能クラスの指定、実行可能mainメソッドを持つクラスの指定にはapplicationプラグインを指定
 apply plugin: 'application'
-// 実行対象クラスを指定する
-mainClassName = 'Main'
+// 実行対象クラスを指定する(PackageDirectory.ClassName)
+mainClassName = 'com.dotinstall.myapp.Main'
